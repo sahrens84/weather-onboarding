@@ -7,6 +7,7 @@ df.createOrReplaceTempView("base")
 # MAGIC %sql
 # MAGIC WITH data AS (
 # MAGIC   SELECT DISTINCT
+# MAGIC     id,
 # MAGIC     category,
 # MAGIC     delivery,
 # MAGIC     flags.explicit,
@@ -15,7 +16,6 @@ df.createOrReplaceTempView("base")
 # MAGIC     flags.racist,
 # MAGIC     flags.religious,
 # MAGIC     flags.sexist,
-# MAGIC     id,
 # MAGIC     joke,
 # MAGIC     lang,
 # MAGIC     safe,
