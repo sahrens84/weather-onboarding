@@ -18,7 +18,7 @@ df.createOrReplaceTempView("base")
 # MAGIC     flags.sexist,
 # MAGIC     joke,
 # MAGIC     lang,
-# MAGIC     safe,
+# MAGIC     safe AS is_safe,
 # MAGIC     setup,
 # MAGIC     type
 # MAGIC   FROM base
