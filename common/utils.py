@@ -17,6 +17,6 @@ def store_json_file(data: str, path: str, file_name: str) -> Optional[str]:
 
     with open(f"{path}/{file_name}.json", "w", encoding="utf-8") as f:
         try:
-            json.dump(data, f, ensure_ascii=False, indent=4)
+            json.dump(data, f)
         except Exception as e:
             return str(e)

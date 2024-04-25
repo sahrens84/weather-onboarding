@@ -21,4 +21,4 @@ path = os.path.join(STORAGE_PATH, source_system, date)
 
 for city in CITIES:
     data = requests.get(f"{BASE_URL}/current.json?key={API_KEY}&q={city}").json()
-    store_json_file(data=data, path=path, file_name=f"{city}")
+    store_json_file(data=data, path=path, file_name=f"{city.lower()}")
