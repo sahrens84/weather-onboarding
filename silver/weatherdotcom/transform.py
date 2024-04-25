@@ -14,12 +14,12 @@ df.createOrReplaceTempView("base")
 # MAGIC   SELECT DISTINCT
 # MAGIC     current.* EXCEPT(condition),
 # MAGIC     current.condition.*,
-# MAGIC   location.* 
+# MAGIC     location.* 
 # MAGIC   FROM base
 # MAGIC )
 # MAGIC
 # MAGIC SELECT
-# MAGIC   name As city_name,
+# MAGIC   name AS city_name,
 # MAGIC   region,
 # MAGIC   country,
 # MAGIC   tz_id,
