@@ -1,5 +1,10 @@
 # Databricks notebook source
-df  = spark.read.json("/Volumes/prod/bronze/file_storage/weatherdotcom/25042024/")
+from datetime import date
+current_date = date.today().strftime("%d%m%Y")
+
+# COMMAND ----------
+
+df  = spark.read.json(f"/Volumes/prod/bronze/file_storage/weatherdotcom/{current_date}/")
 df.createOrReplaceTempView("base")
 
 # COMMAND ----------
@@ -46,9 +51,10 @@ df.createOrReplaceTempView("base")
 # MAGIC   icon,
 # MAGIC   text,
 # MAGIC   localtime::TIMESTAMP,
-# MAGIC   localtime_epoch
+# MAGIC   localtime_epoch,
+# MAGIC   CURRENT_TIMESTAMP() AS valid_at
 # MAGIC FROM data
 
 # COMMAND ----------
 
-_sqldf.write.mode('overwrite').saveAsTable("prod.silver.city_weather")
+_sqldf.write.mode('append').saveAsTable("prod.silver.city_weather")
