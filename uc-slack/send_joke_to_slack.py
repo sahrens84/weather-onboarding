@@ -13,7 +13,7 @@ def fetch_joke():
     # Return joke content based on the joke type 
     joke_type = random_row.select("type").collect()[0][0]
     if joke_type == "single":
-        return random_row.select("joke").collect()[0][0]
+        return random_row.select("joke").collect()[0][0], 
     elif joke_type == "twopart": 
         return random_row.select("setup").collect()[0][0], random_row.select("delivery").collect()[0][0]
     else: 
@@ -44,3 +44,12 @@ joke = fetch_joke()
 
 # Send the joke to Slack
 send_joke_to_slack(joke)
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC use catalog `prod`; select * from `gold`.`jokes` limit 100;
+
+# COMMAND ----------
+
+
