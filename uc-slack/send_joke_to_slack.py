@@ -21,7 +21,7 @@ def fetch_joke():
 
 def send_joke_to_slack(joke):
     # Function to send a joke to Slack channel
-    webhook_url = "https://hooks.slack.com/services/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"
+    webhook_url = dbutils.secrets.get("jokes-api", "slack-webhook-url")
 
     # Define payload based on joke type 
     if len(joke) == 1:
